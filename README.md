@@ -1,6 +1,6 @@
 ### Pre-requisites:
-`pip install cassandra-driver`
-Confluent Kafka platform: [(http://www.confluent.io/developer)]
+```pip install cassandra-driver```
+Confluent Kafka platform: (http://www.confluent.io/developer)
 
 SETUP:
 #start dse, with both search and analytics enabled (analytics only used for now, search coming later)

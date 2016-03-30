@@ -31,7 +31,7 @@ To generate a file containing a day's data for sensors:
 For example:  
 `python filegen.py 1000`  
 
-To simulate pushes of data using REST url's run:
+To simulate pushes of data using REST URL's run:  
 `python generaterest.py <number of devices>`
 
 For example:  

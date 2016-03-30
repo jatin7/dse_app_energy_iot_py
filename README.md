@@ -3,10 +3,10 @@
 Confluent Kafka platform: (http://www.confluent.io/developer)
 
 ### Setup:
-##### Start DSE, with both Search and Analytics enabled (analytics only used for now, search coming later)  
+Start DSE, with both Search and Analytics enabled (analytics only used for now, search coming later)  
 ```bin/dse cassandra -k -s```
 
-##### From Confluent dir:
+From Confluent dir:
 Start zk, kafka, schema registry, and rest server:  
 ```
 bin/zookeeper-server-start etc/kafka/zookeeper.properties

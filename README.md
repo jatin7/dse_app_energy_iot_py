@@ -1,54 +1,47 @@
 ### Pre-requisites:
-```pip install cassandra-driver```
+```pip install cassandra-driver```  
 Confluent Kafka platform: (http://www.confluent.io/developer)
 
-SETUP:
-#start dse, with both search and analytics enabled (analytics only used for now, search coming later)
-bin/dse cassandra -k -s
+### Setup:
+##### Start DSE, with both Search and Analytics enabled (analytics only used for now, search coming later)  
+```bin/dse cassandra -k -s```
 
-From confluent dir:
-#start zk, kafka, schema registry, and rest server
+##### From Confluent dir:
+Start zk, kafka, schema registry, and rest server:  
+```
 bin/zookeeper-server-start etc/kafka/zookeeper.properties
 bin/kafka-server-start etc/kafka/server.properties
 bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
 bin/kafka-rest-start
+```
 
-#create topic
-./bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic meter_readings
+##### Create topic:
+`./bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic meter_readings`
 
-USAGE:
+### Usage:
+To insert data into Cassandra, run:  
+`python energy.py <number of devices> <cassandra host ip>`
 
-To insert data into Cassandra, run:
-python energy.py <number of devices> <cassandra host ip>
+For example:  
+`python energy.py 3 127.0.0.1`  
 
-For example:
-python energy.py 3 127.0.0.1
+To generate a file containing a day's data for sensors:  
+`python filegen.py <number of devices>`
 
-To generate a file containing a day's data for sensors:
+For example:  
+`python filegen.py 1000`  
 
-python filegen.py <number of devices>
+To simulate pushes of data using REST url's run:
+`python generaterest.py <number of devices>`
 
-For example:
+For example:  
+`python generaterest.py 1000`  
 
-python filegen.py 1000
+To run the batch job:  
+`<dse install directory>/bin/dse spark-submit <path to batch.py>`  
 
-To simulate pushes of data using REST urls,s run
+For example:  
+`/dse/bin/dse spark-submit ./batch.py`
 
-python generaterest.py <number of devices>
-
-For example
-
-python generaterest.py 1000
-
-To run the batch job:
-
-<dse install directory>/bin/dse spark-submit <path to batch.py>
-
-For example:
-
-/dse/bin/dse spark-submit ./batch.py
-
-
-testing:
-
-bin/kafka-console-consumer --zookeeper localhost:2181 --topic meter_readings --from-beginning\
+Testing:  
+`bin/kafka-console-consumer --zookeeper localhost:2181 --topic meter_readings --from-beginning\`

@@ -12,8 +12,8 @@ Start DSE, with both Search and Analytics enabled (analytics only used for now, 
 From Confluent dir:
 Start zk, kafka, schema registry, and rest server:  
 ```
-bin/zookeeper-server-start etc/kafka/zookeeper.properties
-bin/kafka-server-start etc/kafka/server.properties
+bin/zookeeper-server-start ./etc/kafka/zookeeper.properties
+bin/kafka-server-start ./etc/kafka/server.properties
 bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
 bin/kafka-rest-start
 ```

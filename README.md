@@ -1,5 +1,5 @@
 ###Background
-This repo is the technical how-to guide for running a sample Energy IoT application leveraging DataStax Enterprise. For background on the use case and architecture please see the following - (https://gist.github.com/pbayliss/9a27b069e7b28bbf67a9f00806ebf170)
+This repo is the technical how-to guide for running a sample Energy IoT application leveraging DataStax Enterprise. For background on the use case and architecture please see the following - https://gist.github.com/pbayliss/9a27b069e7b28bbf67a9f00806ebf170
 
 ### Pre-requisites:
 ```pip install cassandra-driver```  
